@@ -4,6 +4,8 @@ public class EventBroker
 
 
     public static Action<string, string> HUDController;
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static Action WinController;
 
 
@@ -12,7 +14,7 @@ public class EventBroker
         HUDController?.Invoke(title, score);
 
     }
-
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void CallWinController()
     {
         WinController?.Invoke();

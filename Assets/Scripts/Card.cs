@@ -24,6 +24,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
 
     // [SerializeField]
     public int m_pairKey;
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // [SerializeField]
     public bool m_isCardInGame = true;
