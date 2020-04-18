@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    private bool m_isGameFinished = false;
+
     private int m_numberOfAttempts = 0;
     public int puzzleSize;
 
@@ -52,6 +54,11 @@ public class GameManager : MonoBehaviour
             m_cardsInGame.Add(c);
 
         }
+        foreach (Card card in m_cardsInGame)
+        {
+            var rnd = Random.Range(0, 7);
+            card.gameObject.transform.SetSiblingIndex(rnd);
+        }
     }
 
 
@@ -97,6 +104,8 @@ public class GameManager : MonoBehaviour
             if (guessed)
             {
                 card.GuessedCard();
+                m_cardsInGame.Remove(card);
+
             }
             else
             {
@@ -106,7 +115,27 @@ public class GameManager : MonoBehaviour
         }
         m_stackToCompare.Clear();
         m_isStackFull = false;
+        m_isGameFinished = m_cardsInGame.Count == 0;
+
+        FinishGame();
     }
+
+    private void FinishGame()
+    {
+
+        if (m_isGameFinished)
+        {
+            EventBroker.CallWinController();
+        }
+
+    }
+
+    public void RestartGame()
+    {
+        LevelLoader.ReloadLevel();
+    }
+
+
 
     private void MessageToDisplay(bool guessed, string message)
     {

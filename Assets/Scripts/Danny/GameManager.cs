@@ -37,6 +37,7 @@ namespace Solution
 
         }
 
+
         private void InitializeGame()
         {
 
@@ -52,6 +53,7 @@ namespace Solution
                 card.transform.SetParent(m_board, false);
                 m_cardsInGame.Add(c);
             }
+
         }
 
         public void AddToCompare(Card card)
