@@ -18,9 +18,6 @@ public class LevelLoader : MonoBehaviour
 
     }
 
-
-
-
     public static void ReloadLevel()
     {
         Scene currentScene = SceneManager.GetActiveScene();

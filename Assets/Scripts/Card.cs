@@ -80,7 +80,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
 
         if (m_isCardInGame)
         {
-            //Animation
+            LeanTween.scale(gameObject, new Vector3(1.1f, 1.1f, 1.1f), 0.1f);
             m_selectedImage.color = m_isSelected ? m_selectedColor : m_enterColor;
         }
 
@@ -90,6 +90,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
     {
         if (m_isCardInGame)
         {
+            LeanTween.scale(gameObject, new Vector3(1f, 1f, 1f), 0.1f);
             if (!m_isSelected) m_selectedImage.color = m_idleColor;
         }
 
@@ -106,6 +107,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
     {
         yield return new WaitForSeconds(0.3f);
         //animation
+        LeanTween.scale(gameObject, new Vector3(1f, 1f, 1f), 0.1f);
         m_image.sprite = m_backgroundImage;
         m_selectedImage.color = m_idleColor;
         m_isSelected = false;
@@ -114,7 +116,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, I
 
     public void GuessedCard()
     {
-        //Animation
+        LeanTween.scale(gameObject, new Vector3(0.9f, 0.9f, 0.9f), 0.1f);
         m_backgroundImage = null;
         m_image = null;
         m_isSelected = false;
